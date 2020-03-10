@@ -30,7 +30,6 @@ const Styles = styled.div`
         }
       }
     }
-
     th,
     td {
       margin: 0;
@@ -47,6 +46,7 @@ const Styles = styled.div`
       }
     }
   }
+
   .pagination {
     padding: 0.5rem;
   }
@@ -146,7 +146,7 @@ function SliderColumnFilter({
           setFilter(parseInt(e.target.value, 10))
         }}
       />
-      <button onClick={() => setFilter(undefined)}>Off</button>
+      <button onClick={e => setFilter(undefined)}>Off</button>
     </>
   )
 }
@@ -273,13 +273,15 @@ function Table({ columns, data }) {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                  <div>{column.canFilter ? column.render('Filter') : null}</div>
-                  <button>
-                    {column.isSorted ? column.isSortedDesc ? `decreasing` : `increasing` : ``}
+              <th {...column.getHeaderProps()}>
+                <tr>
+                  <button {...column.getSortByToggleProps()}>
+                    {column.isSorted ? column.isSortedDesc ? `Sorted decreasing` : `Sorted increasing` : `Sort`}
                   </button>
-                </th>
+                </tr>
+                {column.render('Header')}
+                <div>{column.canFilter ? column.render('Filter') : null}</div>
+              </th>
             ))}
           </tr>
         ))}
