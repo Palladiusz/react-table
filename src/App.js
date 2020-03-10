@@ -406,6 +406,7 @@ function App() {
             filter: filterGreaterThan,
           },
     ],
+    []
   )
 
   const data = React.useMemo(() => makeData(200), [])
