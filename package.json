@@ -4,8 +4,10 @@
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
-    "eject": "rescripts eject"
+    "eject": "rescripts eject",
+    "deploy" : "npm run build&&gh-pages -d build"
   },
+  "homepage": "https://palladiusz.github.io/react-table",
   "dependencies": {
     "match-sorter": "^4.0.2",
     "namor": "^1.1.2",
@@ -20,7 +22,8 @@
     "@rescripts/rescript-use-babel-config": "^0.0.8",
     "@rescripts/rescript-use-eslint-config": "^0.0.9",
     "babel-eslint": "10.0.1",
-    "eslint-config-prettier": "^6.10.0"
+    "eslint-config-prettier": "^6.10.0",
+    "gh-pages": "^2.2.0"
   },
   "browserslist": {
     "production": [
